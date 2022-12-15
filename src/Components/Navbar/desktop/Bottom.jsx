@@ -1,234 +1,66 @@
 import { Flex, 
     useColorModeValue, 
-    VStack, 
     Stack, 
     Text, 
     Popover, 
     PopoverTrigger, 
     PopoverContent,
     Box,
-    Image,
+    Input,
+    Link
  } from "@chakra-ui/react";
- import React, { useEffect } from 'react'
-
-const LINKS = [
-    {
-        path: "#",
-        text: "NEW ARRIVALS"
-    },
-    {
-        path: "#",
-        text: "DESIGNERS"
-    },
-    {
-        path: "#",
-        text: "CLOTHING",
-        image: 'https://img.mytheresa.com/media/static/raw/cms/l/WW_HP_2022_CW50/WW_FLYOUTS/CW50_Flyout_Regular_1_2x_20221212121208.jpg',
-        children: {
-            'category': [
-                'Dresses',
-                'Jackets',
-                'Coats',
-                'Tops',
-                'Knitwear',
-                'Pants',
-                'Skirts',
-                'Suits & Co-ords',
-                'Jeans',
-                'Shorts',
-                'Beachwear',
-                'Activewear',
-                'Skiwear',
-                'Jumpsuits',
-                'Bridal',
-            ],
-            'brand': [
-                'Alexander McQueen',
-                'Balenciaga',
-                'Bottega Veneta',
-                'Brunello Cucinelli',
-                'Dolce&Gabbana',
-                'Etro',
-                'Gucci',
-            ],
-            'discover': [
-                'New Arrivals',
-                'Exclusives',
-                'Essentials',
-                'Party Dresses',
-                'Essential Coats',
-                'Cardigans',
-            ]
-        }
-    },
-    {
-        path: "#",
-        text: "SHOES",
-        image: 'https://img.mytheresa.com/media/static/raw/cms/l/WW_HP_2022_CW50/WW_FLYOUTS/CW50_Flyout_1420x940_Winterboots_x2_20221213115119.jpg',
-        children: {
-            'category': [
-                'Dresses',
-                'Jackets',
-                'Coats',
-                'Tops',
-                'Knitwear',
-                'Pants',
-                'Skirts',
-                'Suits & Co-ords',
-                'Jeans',
-                'Shorts',
-                'Beachwear',
-                'Activewear',
-                'Skiwear',
-                'Jumpsuits',
-                'Bridal',
-            ],
-            'brand': [
-                'Alexander McQueen',
-                'Balenciaga',
-                'Bottega Veneta',
-                'Brunello Cucinelli',
-                'Dolce&Gabbana',
-                'Etro',
-                'Gucci',
-            ],
-            'discover': [
-                'New Arrivals',
-                'Exclusives',
-                'Essentials',
-                'Party Dresses',
-                'Essential Coats',
-                'Cardigans',
-            ]
-        }
-    },
-    {
-        path: "#",
-        text: "BAGS",
-        image: 'https://img.mytheresa.com/media/static/raw/cms/l/LIFE_FO_2022_CW49/CW49_WW_HP_Flyout_Regular_1_2x_20221205153706.jpg',
-        children: {
-            'category': [
-                'Dresses',
-                'Jackets',
-                'Coats',
-                'Tops',
-                'Knitwear',
-                'Pants',
-                'Skirts',
-                'Suits & Co-ords',
-                'Jeans',
-                'Shorts',
-                'Beachwear',
-                'Activewear',
-                'Skiwear',
-                'Jumpsuits',
-                'Bridal',
-            ],
-            'brand': [
-                'Alexander McQueen',
-                'Balenciaga',
-                'Bottega Veneta',
-                'Brunello Cucinelli',
-                'Dolce&Gabbana',
-                'Etro',
-                'Gucci',
-            ],
-            'discover': [
-                'New Arrivals',
-                'Exclusives',
-                'Essentials',
-                'Party Dresses',
-                'Essential Coats',
-                'Cardigans',
-            ]
-        }
-    },
-    {
-        path: "#",
-        text: "ACCESSORIES",
-        image: 'https://img.mytheresa.com/media/static/raw/cms/l/WW_HP_2022_CW50/WW_FLYOUTS/CW50_Flyout_Regular_2_2x_20221212121207.jpg',
-        children: {
-            'category': [
-                'Dresses',
-                'Jackets',
-                'Coats',
-                'Tops',
-                'Knitwear',
-                'Pants',
-                'Skirts',
-                'Suits & Co-ords',
-                'Jeans',
-                'Shorts',
-                'Beachwear',
-                'Activewear',
-                'Skiwear',
-                'Jumpsuits',
-                'Bridal',
-            ],
-            'brand': [
-                'Alexander McQueen',
-                'Balenciaga',
-                'Bottega Veneta',
-                'Brunello Cucinelli',
-                'Dolce&Gabbana',
-                'Etro',
-                'Gucci',
-            ],
-            'discover': [
-                'New Arrivals',
-                'Exclusives',
-                'Essentials',
-                'Party Dresses',
-                'Essential Coats',
-                'Cardigans',
-            ]
-        }
-    },
-    {
-        path: "#",
-        text: "FESTIVE SEASON"
-    },
-    {
-        path: "#",
-        text: "SALE"
-    },
-]
+ import {Link as ReactLink, useLocation, useParams} from 'react-router-dom'
+ import React from 'react'
+import {LINKS} from './data'
+import SubNav from "./SubNav";
 
 export default function Bottom(){
+    const [offsetLeft, setOffsetLeft] = React.useState(null)
     const linkColor = useColorModeValue('gray.600', 'gray.400')
-    const linkHoverColor = useColorModeValue('gray.400', 'gray.200')
-    let boundary = React.useRef(null)
+    const linkHoverColor = useColorModeValue('lightGrey', 'gray.200')
+    const loc = useLocation()
+    const type = loc.pathname.split('/')[1]
+    const bottomRef = React.useRef(null)
+    const barRef = React.useRef(null)
+    const bound = React.useRef(null)
     React.useEffect(()=>{
-        console.log(boundary)
-        boundary = document.getElementById('boundary')
+        var rect = bottomRef.current.getBoundingClientRect();
+        var rect2 = barRef.current.getBoundingClientRect();
+        console.log(rect2.left, rect.left);
+        setOffsetLeft(rect2.left)
     }, [])
-    
-    return <Flex ref={boundary} id='boundary' minH="40px" align='center'>
+    console.log(offsetLeft)
+    return <Flex minH="40px" align='center' justify='space-between' ref={bottomRef} display={loc.pathname==='/'?'none':'flex'}>
         <Stack direction={'row'} spacing={4}>
            {LINKS.map((item) => (
             <Box key={item.text}>
-            {<Popover border={10} borderColor={linkColor} trigger={'hover'} placement={'bottom'} boundary={boundary.current}>
+            {<Popover border={10} borderColor={linkColor} trigger={'hover'} placement={'bottom'}>
                 <PopoverTrigger>
-                    <Text
-                        textStyle='h4'
-                        color={linkColor}
-                        _hover={{
-                            textDecoration: 'none',
-                            color: linkHoverColor,
-                            cursor: 'pointer',
-                    }}>
-                        {item.text}
-                    </Text>
+                    <Link as={ReactLink} to={`/${type}/products${item.path}/all`}>
+                        <Text
+                            textStyle='h4'
+                            color={linkColor}
+                            _hover={{
+                                textDecoration: 'none',
+                                color: linkHoverColor,
+                                cursor: 'pointer',
+                                transition: 'color 0.5s',
+                        }}>
+                            {item.text}
+                        </Text>
+                    </Link>
                 </PopoverTrigger>
     
                 {item.children && (
                     <PopoverContent
+                        ref={barRef}
                         key={item.textS}
                         minW={'6xl'}
-                        p='30px'
-                        textAlign='left'
+                        p='0'
+                        pos='absolute'
+                        left={offsetLeft*-1}
                         >
-                        <SubNav children={item.children} image={item.image}/>
+                        <SubNav children={item.children} image={item.image} parentPath={item.path}/>
                     
                     </PopoverContent>
                 )}
@@ -236,32 +68,11 @@ export default function Bottom(){
             </Box>
             ))}
         </Stack>
-    </Flex>
-}
-
-const LABELS = {
-    'category': 'SHOP BY CATEGORY',
-    'brand': 'TOP BRANDS',
-    'discover': 'DISCOVER'
-}
-
-function SubNav({children, image}){
-    const elements = []
-    for (let key in children){
-        elements.push(<VStack minW='100px'>
-            <Flex>
-                <Text textStyle='h3'>{LABELS[key]}</Text>
-            </Flex>
-            <VStack>
-                {children[key].map(labels=>
-                    <Text key={labels} variant='highlight'>{labels}</Text>)}
-            </VStack>
-        </VStack>)
-    }
-    return <Flex justifyContent='space-between'>
-        {elements}
-        <Flex maxW='50%'>
-            <Image src={image} alt='product' />
+        <Flex align='center' justify='center' w='300px'>
+            <Input h='25px'/>
         </Flex>
     </Flex>
 }
+
+
+

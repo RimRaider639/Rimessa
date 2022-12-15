@@ -1,14 +1,20 @@
-import { defineStyleConfig } from '@chakra-ui/react'
+import { defineStyleConfig, MultiStyleConfig } from '@chakra-ui/react'
 
 const Flex = defineStyleConfig({
     variants : {
-        active: {
-            bg: 'gray.600',
-            border: '2px solid black'
+        sticky: {
+            position: 'fixed',
+            top: '0',
+            width: '80%',
+            zIndex: '200',
+            bg: 'white'
+        },
+        default: {
+            position: 'static',
         }
     },
-    baseStyle: {
-        bg: 'gray.600'
+    defaultProps: {
+        variant: 'default'
     }
 })
 

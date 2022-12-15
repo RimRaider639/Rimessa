@@ -11,7 +11,7 @@ const Text = defineStyleConfig({
                 color: 'text_hover',
                 cursor: 'pointer',
             }
-        }
+        },
     }
 })
 
