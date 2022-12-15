@@ -1,23 +1,23 @@
 const textStyles={
     h1:{
-        fontFamily: `"Gothic A1", sans-serif`,
+        fontFamily: `Futura,Century Gothic,Gill Sans,Helvetica,Arial,sans-serif`,
         fontWeight: '500',
         fontSize: ['40px', '40px', '28px', '28px', '54px'], //base, sm, md, lg, xl
         lineHeight: '65px'
     },
     h2:{
-        fontFamily: `"Gothic A1", sans-serif`,
+        fontFamily: `Futura,Century Gothic,Gill Sans,Helvetica,Arial,sans-serif`,
         fontWeight: '400',
         fontSize: ['34px', '34px', '24px', '24px','34px'],
         lineHeight: '44px'
     },
     h3:{
-        fontFamily: `"Gothic A1", sans-serif`,
+        fontFamily: `Futura,Century Gothic,Gill Sans,Helvetica,Arial,sans-serif`,
         fontWeight: '400',
         fontSize: ['15px', '15px', '14px', '14px', '16px'],
     },
     h4:{
-        fontFamily: `"Gothic A1", sans-serif`,
+        fontFamily: `Futura,Century Gothic,Gill Sans,Helvetica,Arial,sans-serif`,
         fontWeight: '400',
         fontSize: ['14px', '14px', '13px', '13px', '14px'],
     },

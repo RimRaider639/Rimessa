@@ -4,7 +4,6 @@ const Container = defineStyleConfig({
     sizes: {
         md:{
             maxWidth: '6xl',
-            bg: 'red',
             p: 0,
         }
     },
