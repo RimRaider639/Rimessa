@@ -7,35 +7,36 @@ import { Card,
     Text,
     ButtonGroup,
     Divider,
+    CardHeader,
     } from '@chakra-ui/react'
 
-export default function ProductItem({name, brand, mrp, price, image}){
+export default function ProductItem({name, brand, mrp, price, images, title}){
     return <Card maxW='sm'>
-    <CardBody>
+    <CardHeader>
+      <ButtonGroup spacing='2'>
+        <Button variant='solid'>
+          Buy now
+        </Button>
+        <Button variant='ghost'>
+          Add to cart
+        </Button>
+      </ButtonGroup>
+    </CardHeader>
+    <Divider />
+    <CardBody alignContent='center' alignItems='center' justify='center' textAlign='center'>
       <Image
-        src={image}
+        src={images[0]}
         alt={name}
         borderRadius='lg'
       />
       <Stack mt='6' spacing='3'>
-        <Text textStyle='h3' size='md'>{brand.toUpperCase()}</Text>
-        <Text textStyle='h3' size='md'>{name}</Text>
-        <Text textStyle='t1' color='blue.600' fontSize='2xl'>
-          {price}
+        <Text textStyle='h3' size='md'>GUCCI</Text>
+        <Text textStyle='h3' size='md'>{title}</Text>
+        <Text textStyle='t1' color='secondary'>
+          € {mrp}
         </Text>
       </Stack>
     </CardBody>
-    <Divider />
-    <CardFooter>
-      <ButtonGroup spacing='2'>
-        <Button variant='solid' colorScheme='blue'>
-          Buy now
-        </Button>
-        <Button variant='ghost' colorScheme='blue'>
-          Add to cart
-        </Button>
-      </ButtonGroup>
-    </CardFooter>
   </Card>
 
 }

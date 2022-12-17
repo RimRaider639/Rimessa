@@ -12,6 +12,9 @@ const Text = defineStyleConfig({
                 cursor: 'pointer',
             }
         },
+    },
+    baseStyle: {
+        letterSpacing: '1.5px'
     }
 })
 

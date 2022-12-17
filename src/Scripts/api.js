@@ -11,6 +11,10 @@ export const getData = (url, params) => {
             _limit: params.limit,
             _sort: params.sort,
             _orderBy: params.orderBY,
+            q:params.q,
+            category: params.category,
+            brand: params.brand,
+            department: params.type
         }
     }
     return axios(config)
