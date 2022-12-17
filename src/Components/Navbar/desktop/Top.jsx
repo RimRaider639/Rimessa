@@ -2,6 +2,7 @@
 import { Flex, Link, Text } from "@chakra-ui/react"
 import { Link as RouterLink, useLocation } from "react-router-dom"
 import { LINKS_LEFT, LINKS_RIGHT } from "./data"
+import ToggleThemeBtn from "../../toggleThemeBtn"
 
 
 
@@ -32,6 +33,8 @@ export default function Top(){
                 </Flex>    
                 )
             }
+            <ToggleThemeBtn/>
+
         </Flex>
     </Flex>
 }

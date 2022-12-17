@@ -7,6 +7,6 @@ const BANNER = {
 export default function Home(){
     return <Container>
         <Banner image={BANNER.sale}/>
-        <Banner image={BANNER.cruise}/>
+        <Banner image={BANNER.cruise} text={['h3YOUR NEW OUTLOOK\nh1CRUISE 2023']} btn={true}/>
     </Container>
 }

@@ -1,11 +1,11 @@
 import { LABELS } from './data'
 import { VStack, Image, Flex, Text, Link } from '@chakra-ui/react'
-import { Link as RouterLink, useLocation } from 'react-router-dom'
+import { Link as RouterLink, useLocation, useParams } from 'react-router-dom'
+import Banner from '../../Banner'
 
 export default function SubNav({children, image, parentPath}){
     const loc = useLocation()
     const type = loc.pathname.split('/')[1]
-
     const elements = []
     for (let key in children){
         elements.push(<VStack minW='200px' >
@@ -22,7 +22,8 @@ export default function SubNav({children, image, parentPath}){
         {elements}
         <Flex direction='column'>
             <Flex h='40px' w='100%' bg='lightGrey' m={0}></Flex>
-            <Image src={image} alt='product' />
+            {/* <Image src={image} alt='product' /> */}
+            <Banner image={image} text={["h1COATS"]} btn={true} gap={10}/>
         </Flex>
     </Flex>
 }

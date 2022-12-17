@@ -4,7 +4,7 @@
   "icons": [
     {
       "src": "Rimessa.svg",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "667x667",
       "type": "image/x-icon"
     },
     {
@@ -13,7 +13,7 @@
       "sizes": "500x500"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

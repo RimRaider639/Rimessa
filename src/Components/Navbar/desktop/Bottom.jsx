@@ -57,8 +57,8 @@ export default function Bottom(){
                         key={item.textS}
                         minW={'6xl'}
                         p='0'
-                        pos='absolute'
-                        left={offsetLeft*-1}
+                        // pos='absolute'
+                        // left={offsetLeft*-1}
                         >
                         <SubNav children={item.children} image={item.image} parentPath={item.path}/>
                     
