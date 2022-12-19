@@ -8,16 +8,33 @@ import { Card,
     ButtonGroup,
     Divider,
     CardHeader,
-    } from '@chakra-ui/react'
+} from '@chakra-ui/react'
+import {BeatLoader} from '@chakra-ui/icons'
+import React from 'react'
 
-export default function ProductItem({name, brand, mrp, price, images, title}){
-    return <Card maxW='sm'>
+export default function ProductItem({name, brand, mrp, price, images, title, id, addToCart}){
+  const [isAdding, setIsAdding] = React.useState(false)
+
+  const cart = () => {
+    const prod = {
+      name, brand:'GUCCI', mrp, image:images[0], size:'M', id
+    }
+    setIsAdding(true)
+    addToCart(prod)
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(err=>console.log(err))
+    .finally(setIsAdding(false)) //setting in finally cuz axios sends read only error and never gets to .then
+  }
+
+  return <Card maxW='sm'>
     <CardHeader>
       <ButtonGroup spacing='2'>
-        <Button variant='solid'>
+        <Button variant='outline'>
           Buy now
         </Button>
-        <Button variant='ghost'>
+        <Button variant='ghost' isLoading={isAdding} onClick={cart}>
           Add to cart
         </Button>
       </ButtonGroup>

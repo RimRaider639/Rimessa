@@ -30,7 +30,7 @@ export default function Sticky({children}){
         setSticky(scrolled(offset, top.current))
         
     }, [offset])
-    return <Flex direction='column' ref={barRef} position={sticky?'fixed':'relative'} zIndex='200' width={sticky?width.current:""} bg='white' top={0} opacity={sticky?0.8:1}>
+    return <Flex direction='column' ref={barRef} position={sticky?'fixed':'relative'} zIndex={sticky?'200':""} width={sticky?width.current:""} bg='white' top={0} opacity={sticky?0.8:1}>
             {children}
         </Flex>
 }

@@ -10,9 +10,9 @@ const IMAGES = {
 
 export default function Home(){
     return <Container>
-        <Banner image={IMAGES.men_women} text={['h1Women', 'h1Men']}/>
-        <Banner image={IMAGES.kids} text={['h1Kids']}/>
-        <Banner image={IMAGES.life} text={['h1Life']}/>
+        <Banner image={IMAGES.men_women} text={['h1Women', 'h1Men']} links={['women', 'men']}/>
+        <Banner image={IMAGES.kids} text={['h1Kids']} links={['kids']}/>
+        <Banner image={IMAGES.life} text={['h1Life']} links={['life']}/>
         <Carousal/>
     </Container>
 }
