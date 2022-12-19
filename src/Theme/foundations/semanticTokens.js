@@ -11,7 +11,7 @@ const semanticTokens = {
         _dark: 'orange.500',
       },
       text: {
-          default: 'gray.600',
+          default: 'gray.500',
           _dark: 'gray.50',
       },
       text_hover: {

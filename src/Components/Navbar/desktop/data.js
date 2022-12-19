@@ -25,7 +25,7 @@ export const LINKS_RIGHT = [
         text: "Signup for Newsletter"
     },
     {
-        path: "#",
+        path: "/login",
         text: "My account"
     },
     {
@@ -96,21 +96,11 @@ export const LINKS_RIGHT = [
         image: 'https://img.mytheresa.com/media/static/raw/cms/l/WW_HP_2022_CW50/WW_FLYOUTS/CW50_Flyout_1420x940_Winterboots_x2_20221213115119.jpg',
         children: {
             'category': [
-                'Dresses',
-                'Jackets',
-                'Coats',
-                'Tops',
-                'Knitwear',
-                'Pants',
-                'Skirts',
-                'Suits & Co-ords',
-                'Jeans',
-                'Shorts',
-                'Beachwear',
-                'Activewear',
-                'Skiwear',
-                'Jumpsuits',
-                'Bridal',
+                'Sneakers',
+                'Boots',
+                'Heels',
+                'Loafers & Flat Shoes',
+                'Sandals',   
             ],
             'brand': [
                 'Alexander McQueen',

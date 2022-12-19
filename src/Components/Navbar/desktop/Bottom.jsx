@@ -30,10 +30,10 @@ export default function Bottom(){
         setOffsetLeft(rect2.left)
     }, [])
     console.log(offsetLeft)
-    return <Flex minH="40px" align='center' justify='space-between' ref={bottomRef} display={loc.pathname==='/'?'none':'flex'}>
+    return <Flex minH="40px" align='center' justify='space-between' ref={bottomRef} display={loc.pathname==='/'||loc.pathname==='/cart'?'none':'flex'}>
         <Stack direction={'row'} spacing={4}>
            {LINKS.map((item) => (
-            <Box key={item.text}>
+            <Box key={item.path}>
             {<Popover border={10} borderColor={linkColor} trigger={'hover'} placement={'bottom'}>
                 <PopoverTrigger>
                     <Link as={ReactLink} to={`/${type}/products${item.path}/all`}>
@@ -54,7 +54,7 @@ export default function Bottom(){
                 {item.children && (
                     <PopoverContent
                         ref={barRef}
-                        key={item.textS}
+                        key={item.text}
                         minW={'6xl'}
                         p='0'
                         // pos='absolute'

@@ -13,6 +13,8 @@ export default function ToggleThemeBtn(props) {
         onClick={toggleColorMode}
         _focus={{ boxShadow: 'none' }}
         w="fit-content"
+        bg='none'
+        _hover={{bg:'none'}}
         {...props}>
         {colorMode === 'light' ? <BsMoonStarsFill /> : <BsSun />}
       </Button>

@@ -10,11 +10,13 @@ export const getData = (url, params) => {
             _page: params.page,
             _limit: params.limit,
             _sort: params.sort,
-            _orderBy: params.orderBY,
+            _order: params.order,
             q:params.q,
             category: params.category,
             brand: params.brand,
-            department: params.type
+            department: params.department,
+            subCategory: params.subCategory,
+            id: params.id,
         }
     }
     return axios(config)
@@ -24,7 +26,17 @@ export const postData = (data, url) => {
         method: 'POST',
         baseURL: BASE_URL,
         url,
-        data,
+        data
+    }
+    return axios(config)
+}
+
+export const validateLogin = (url, params) => {
+    const config = {
+        method: 'GET',
+        baseURL: BASE_URL,
+        url,
+        params,
     }
     return axios(config)
 }
