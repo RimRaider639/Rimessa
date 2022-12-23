@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import { useLocation } from "react-router-dom";
 
@@ -11,6 +11,7 @@ const MESSAGES = [
 export default function Notify(){
     const [message, setMessage] = React.useState(MESSAGES[0])
     const loc = useLocation()
+    const bg = useColorModeValue('white', 'blackAlpha.900')
     
     React.useEffect(()=>{
         let count = 1
@@ -22,7 +23,7 @@ export default function Notify(){
         return ()=>clearInterval(id)
     }, [])
     
-    return <Flex align='center' justify='center' minH='40px' display={loc.pathname=='/'?'none':'flex'}>
+    return <Flex align='center' justify='center' minH='40px' display={loc.pathname=='/'?'none':'flex'} bg={bg}>
             <Text textStyle='t1' color='secondary'>{message}</Text>
         </Flex>
 }

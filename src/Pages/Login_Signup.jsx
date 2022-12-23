@@ -12,7 +12,7 @@ export default function Login_Signup(){
     return <Container>
         <Flex>
             <RegisterForm/>
-            <Center height='100%' w="20px">
+            <Center height='100%' w="30px">
                 <Divider orientation='vertical'/>  
             </Center>
             <LoginForm/>

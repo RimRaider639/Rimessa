@@ -105,10 +105,9 @@ export default function Products(){
         dispatcher(ACTION.SUBCAT(cat))
         dispatcher(ACTION.PAGE(1))
     }
-    console.log(userCred)
     const addToCart = ({id, ...rest}) => {
         const prod = {
-            prod_id: prod.id,
+            prod_id: id,
             user_id: userCred.id,
             qtd:1,
             ...rest,
@@ -147,7 +146,7 @@ export default function Products(){
             <Flex justify='space-between' align='center' textStyle='t3'>
                 <CustomBreadcrumb links={BREADCRUMB}/>
                 <Flex><Text >{totalCount.current} Products</Text></Flex>
-                <Sort handleSort={handleSort}/>
+                <Sort handleSort={handleSort} w="120px"/>
                 <Paginate {...paginate}/>
             </Flex>
             <Divider/>

@@ -27,10 +27,12 @@ import {
 } from '@chakra-ui/icons';
 
 import DesktopNav from './desktop/DesktopNav';
+import MobileNav from './mobile/MobileNav';
 
 export default function Navbar(){
     return <Container size={{md: 'md'}}>
       <DesktopNav/>
+      <MobileNav/>
     </Container>
 }
 

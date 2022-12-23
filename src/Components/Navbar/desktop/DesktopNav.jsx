@@ -1,4 +1,4 @@
-import { Divider, Flex, Spacer } from "@chakra-ui/react"
+import { Divider, Flex, Spacer, useColorModeValue } from "@chakra-ui/react"
 import Top from "./Top"
 import Middle from "./Middle"
 import Bottom from "./Bottom"
@@ -7,9 +7,8 @@ import Sticky from "../Sticky";
 import HomeBottom from "./HomeBottom"
 
 export default function DesktopNav(props){
-    
-
-    return <Flex  direction='column' gap='sm' minH='220px'>
+    const bg = useColorModeValue('white', 'black')
+    return <Flex bg={bg}  direction='column' gap='sm' minH='220px' display={{sm:'none', md:'flex', lg:'flex'}}>
         <Top/>
         <Spacer/>
         <Middle/>

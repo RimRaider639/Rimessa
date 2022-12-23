@@ -12,6 +12,7 @@ import { Flex,
     PopoverCloseButton,
     PopoverAnchor,
     Divider,
+    useColorModeValue,
  } from "@chakra-ui/react"
 import { Link as RouterLink, useLocation } from "react-router-dom"
 import { LINKS_LEFT, LINKS_RIGHT } from "./data"
@@ -25,8 +26,9 @@ import Button from "../../Button"
 export default function Top(){
     const location = useLocation()
     const {userCred, isAuth, logout} = useContext(AuthContext)
+    const bg = useColorModeValue('white', 'black')
   
-    return <Flex minH="40px" justifyContent='space-between'>
+    return <Flex minH="40px" justifyContent='space-between' bg = {bg}>
         {/* left */}
         <Flex  align='center' gap={2}>
             {

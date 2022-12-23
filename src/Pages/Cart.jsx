@@ -9,27 +9,43 @@ import {
     TableCaption,
     TableContainer,
     Container,
-    Image
+    Image,
+    Flex,
+    NumberInput,
+    NumberInputField,
+    Text,
+    Input,
+    InputGroup,
+    InputRightAddon,
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription,
+    useDisclosure,
   } from '@chakra-ui/react'
 import React from 'react'
-import { getData } from "../Scripts/api";
-import { AuthContext } from "../Context/AuthContext";
+import { CartContext } from '../Context/CartContext'
+import CartItem from '../Components/CartItem'
+import Button from '../Components/Button'
+import AlertWrapper from '../Components/AlertWrapper'
 
 export default function Cart(){
-    const [data, setData] = React.useState([])
-    const {userCred:{id}} = React.useContext(AuthContext)
+    const {updateCartData, data, total} = React.useContext(CartContext)
+    const {
+        isOpen: isVisible,
+        onClose,
+        onOpen,
+      } = useDisclosure({ defaultIsOpen: false })
+
     React.useEffect(()=>{
-        getData('cart', {id})
-        .then(res=>console.log(res))
-        .catch(err=>console.log(err))
+        updateCartData()
     }, [])
     return <Container>
+        <Text>YOUR SHOPPING BAG</Text>
         <TableContainer>
         <Table variant='simple'>
-            <TableCaption>YOUR SHOPPING BAG</TableCaption>
             <Thead>
             <Tr>
-                <Th></Th>
                 <Th></Th>
                 <Th></Th>
                 <Th>Price</Th>
@@ -38,21 +54,27 @@ export default function Cart(){
             </Tr>
             </Thead>
             <Tbody>
-                {data.map(prod=><Tr>
-                    <Td><Image src={prod.image}/></Td>
-                    <Td>{prod.name}</Td>
-                </Tr>
-            )}
+                {data.map(prod=> <CartItem prod={prod} updateCartData={updateCartData}/>)}
             </Tbody>
-            <Tfoot>
-            <Tr>
-                <Th>To convert</Th>
-                <Th>into</Th>
-                <Th isNumeric>multiply by</Th>
-            </Tr>
-            </Tfoot>
         </Table> 
                     
         </TableContainer>
+        <Flex justify='space-between' p='30px 0'>
+            <Flex>
+            <InputGroup>
+                <Input type='text' placeholder='Gift card/store credit/promo code' w='300px'/>
+                <InputRightAddon children='USE CODE' cursor='pointer'/>
+
+            </InputGroup>
+            </Flex>
+            <Flex direction='column' justify='flex-end' align='flex-end' right='0'>
+                <Text color='text'>Subtotal € {total}</Text>
+                <Text fontWeight='600'>GRAND TOTAL € {total}</Text>
+                <Text color='text'>VAT exception. VAT not included. Shipping not included.</Text>
+                <AlertWrapper isVisible={isVisible} onClose={onClose}>
+                    <Button text='PROCEED TO CHECKOUT' mt='30px' onClick={onOpen}/>
+                </AlertWrapper>
+            </Flex>
+        </Flex>
     </Container>
 }

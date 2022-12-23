@@ -63,7 +63,7 @@ import {
   
   const ListHeader = ({ children }) => {
     return (
-      <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
+      <Text textStyle='h3' fontWeight={'500'} fontSize={'lg'} mb={2}>
         {children}
       </Text>
     );
@@ -71,7 +71,8 @@ import {
   
   export default function LargeWithNewsletter() {
     return (
-      <Box
+      <Box 
+        mt='50px'
         bg={useColorModeValue('gray.50', 'gray.900')}
         color={useColorModeValue('gray.700', 'gray.200')}>
         <Container as={Stack} maxW={'6xl'} py={10}>
@@ -79,12 +80,12 @@ import {
             templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
             spacing={8}>
             <Stack spacing={6}>
-              <Box>
+              {/* <Box>
                 <Logo color={useColorModeValue('gray.700', 'white')} />
               </Box>
               <Text fontSize={'sm'}>
                 © 2022 Chakra Templates. All rights reserved
-              </Text>
+              </Text> */}
               <Stack direction={'row'} spacing={6}>
                 <SocialButton label={'Twitter'} href={'#'}>
                   <FaTwitter />
@@ -100,10 +101,10 @@ import {
             <Stack align={'flex-start'}>
               <ListHeader>Company</ListHeader>
               <Link href={'#'}>About us</Link>
-              <Link href={'#'}>Blog</Link>
+              <Link href={'#'}>New Arrival</Link>
+              <Link href={'#'}>Trust & Services</Link>
+              <Link href={'#'}>Sustainibility</Link>
               <Link href={'#'}>Contact us</Link>
-              <Link href={'#'}>Pricing</Link>
-              <Link href={'#'}>Testimonials</Link>
             </Stack>
             <Stack align={'flex-start'}>
               <ListHeader>Support</ListHeader>
@@ -125,10 +126,10 @@ import {
                   }}
                 />
                 <IconButton
-                  bg={useColorModeValue('green.400', 'green.800')}
+                  bg={useColorModeValue('gray.400', 'gray.800')}
                   color={useColorModeValue('white', 'gray.800')}
                   _hover={{
-                    bg: 'green.600',
+                    bg: 'secondary',
                   }}
                   aria-label="Subscribe"
                   icon={<BiMailSend />}

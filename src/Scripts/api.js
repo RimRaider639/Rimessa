@@ -26,7 +26,7 @@ export const postData = (data, url) => {
         method: 'POST',
         baseURL: BASE_URL,
         url,
-        data
+        data,
     }
     return axios(config)
 }
@@ -39,4 +39,19 @@ export const validateLogin = (url, params) => {
         params,
     }
     return axios(config)
+}
+
+export const patchData = (data, url, params) => {
+    const config = {
+        method: 'POST',
+        baseURL: BASE_URL,
+        url,
+        data,
+        params,
+    }
+    return axios(config)
+}
+
+export const deleteData = (url, params) => {
+    
 }

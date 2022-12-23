@@ -69,13 +69,13 @@ export default function RegisterForm(){
         .finally()
     }
     
-    return <VStack w='48%'>
+    return <VStack w='48%' gap={2}>
         <Box w='100%'>
             <Text>CREATE AN ACCOUNT</Text>
             <Text>Please enter the following information to create your account.</Text>
         </Box>
         
-        <Box>
+        <VStack>
             <FormControl as='fieldset'>
                     <RadioGroup defaultValue='ms' name='title' onChange={onChange}>
                         <HStack spacing='24px'>
@@ -91,7 +91,7 @@ export default function RegisterForm(){
                 <Input placeholder='password *' type='password' isRequired name='pwd' value={pwd} onChange={onChange}/>
                 <Input placeholder='confirm password *' type='password' isRequired name='confirmPwd'/>
                 <Checkbox size='md' colorScheme='blue' defaultChecked alignItems='flex-start' name='newsletter' isChecked={newsletter} onChange={onChange}>
-                    <FormLabel>
+                    <FormLabel textStyle='t1' fontSize='14px'>
                         <Text>
                             From now on I will receive the Mytheresa Newsletter with selected fashion offers. If I do not wish to receive the newsletter, I can unsubscribe at any time free of charge at privacy@mytheresa.com.   
                         </Text>
@@ -104,7 +104,7 @@ export default function RegisterForm(){
                 <Text>* required fields</Text>
                 <Button text="REGISTER" onClick={onSubmit}/>
             
-        </Box>
+        </VStack>
         
     </VStack>
 }

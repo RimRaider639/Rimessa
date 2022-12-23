@@ -13,10 +13,8 @@ export default function AllRoutes(){
         <Route path="/" element={<Home/>}/>
         <Route path="/women" element={<Women/>}/>
         <Route path="/kids" element={<Kids/>}/>
-        <Route path="/:type/products/:category" element={<Products/>}>
-            <Route path=":id" element={<Product/>}/>
-        </Route>
-        {/* <Route path="/:type/products/:category/:id" element={<Product/>}/> */}
+        <Route path="/:type/products/:category/all" element={<Products/>}/>
+        <Route path="/:type/products/:category/:id" element={<Product/>}/>
         <Route path="/login" element={<Login_Signup/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/wishlist" element={<Wishlist/>}/>

@@ -1,5 +1,6 @@
 import { Box, Container, Image, Flex } from "@chakra-ui/react"
 import Banner from "../Components/Banner"
+import Button from "../Components/Button"
 import Carousal from "../Components/Carousal"
 
 const IMAGES = {
@@ -13,6 +14,13 @@ export default function Home(){
         <Banner image={IMAGES.men_women} text={['h1Women', 'h1Men']} links={['women', 'men']}/>
         <Banner image={IMAGES.kids} text={['h1Kids']} links={['kids']}/>
         <Banner image={IMAGES.life} text={['h1Life']} links={['life']}/>
-        <Carousal/>
+        <Flex direction='column' justify='center' align='center'>
+            <Carousal/>
+            <Flex>
+                <Button text='SHOP NOW'/>
+            </Flex>
+            
+        </Flex>
+        
     </Container>
 }

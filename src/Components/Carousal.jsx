@@ -47,7 +47,7 @@ export default function Carousel() {
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
   const top = useBreakpointValue({ base: '90%', md: '50%' });
-  const side = useBreakpointValue({ base: '30%', md: '10px' });
+  const side = useBreakpointValue({ base: '30%', md: '10px', lg:'10px' });
 
   // These are the images used in the slide
   const cards = [
@@ -79,7 +79,7 @@ export default function Carousel() {
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
-        colorScheme="messenger"
+        bg='secondary'
         borderRadius="full"
         position="absolute"
         left={side}
@@ -92,7 +92,7 @@ export default function Carousel() {
       {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
-        colorScheme="messenger"
+        bg='secondary'
         borderRadius="full"
         position="absolute"
         right={side}
