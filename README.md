@@ -6,10 +6,10 @@
 
 Features:
 
-•Responsive, dark mode supported, theming
-•Carousals, cart, filtering, sorting, pagination
-•User login/register
-•Query strings & routing
+- Responsive, dark mode supported, theming
+- Carousals, cart, filtering, sorting, pagination
+- User login/register
+- Query strings & routing
 
 ## Homepage
 
