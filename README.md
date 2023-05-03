@@ -32,6 +32,10 @@ Features:
 
 ![image](https://user-images.githubusercontent.com/112859531/235865169-031920bb-f8e6-4141-8fdc-c914f559f288.png)
 
+## Cart
+
+![image](https://user-images.githubusercontent.com/112859531/235866445-eacdfdc9-e99b-4892-920f-ebb43403c784.png)
+
 ## Registration
 
 ![image](https://user-images.githubusercontent.com/112859531/222205305-3c757f80-1114-4855-948b-a02d543c0e23.png)
