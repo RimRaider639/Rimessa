@@ -27,6 +27,7 @@ Features:
 ## Women's Clothing
 
 ![image](https://user-images.githubusercontent.com/112859531/235865068-84236f9f-e585-4820-8213-8ca57ebbc676.png)
+![image](https://user-images.githubusercontent.com/112859531/235866978-4bec48e4-eb20-47ba-a2fc-6b29c325cb78.png)
 
 ## Women's Shoes
 
