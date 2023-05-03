@@ -41,4 +41,9 @@ Features:
 
 ![image](https://user-images.githubusercontent.com/112859531/222205305-3c757f80-1114-4855-948b-a02d543c0e23.png)
 
+### Indicates when the user is logged in
+
+![image](https://user-images.githubusercontent.com/112859531/235867662-d5b4a983-1efc-4c21-8c52-a020c90fb638.png)
+
+
 
